@@ -1,7 +1,7 @@
-import {SpecificationsRepository} from "../repositories/SpecificationsRepository";
-import {ISpecificationDTO} from "../dtos/ISpecificationDTO";
+import {SpecificationsRepository} from "../../repositories/SpecificationsRepository";
+import {ISpecificationDTO} from "../../dtos/ISpecificationDTO";
 
-export class CreateSpecificationService {
+export class CreateSpecificationUseCase {
   constructor(private specificationRepository: SpecificationsRepository) {}
 
   execute(data: ISpecificationDTO): ISpecificationDTO {

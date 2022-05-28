@@ -3,7 +3,20 @@ import {ISpecificationDTO} from "../dtos/ISpecificationDTO";
 import {Specifications} from "../model/Specifications";
 
 export class SpecificationsRepository implements ISpecificationsRepository{
-  private specifications: Specifications[] = []
+  private specifications: Specifications[];
+
+  private static INSTANCE: SpecificationsRepository;
+
+  private constructor() {
+    this.specifications = [];
+  }
+
+  public static getInstance(): SpecificationsRepository {
+    if(!SpecificationsRepository.INSTANCE) {
+      SpecificationsRepository.INSTANCE = new SpecificationsRepository();
+    }
+    return SpecificationsRepository.INSTANCE;
+  }
 
   create(data: ISpecificationDTO): ISpecificationDTO {
     const specification = new Specifications();
