@@ -1,16 +1,21 @@
 import {ICategoryDTO} from "../../dtos/ICategoryDTO";
-import {ICategoryRepository} from "../../repositories/ICategoryRepository";
+import {ICategoriesRepository} from "../../repositories/ICategoriesRepository";
+import {inject, injectable} from "tsyringe";
 
+@injectable()
 export class CreateCategoryUseCase {
-  constructor(private categoryRepository: ICategoryRepository) {}
+  constructor(
+      @inject('CategoriesRepository')
+      private categoriesRepository: ICategoriesRepository) {}
 
   async execute({name, description}: ICategoryDTO): Promise<ICategoryDTO> {
-    const categoryAlreadyExists = await this.categoryRepository.findByName(name);
+    const categoryAlreadyExists = await this.categoriesRepository.findByName(name);
 
     if(categoryAlreadyExists){
       throw new Error("Category already exists");
     }
 
-    return this.categoryRepository.create({name, description});
+
+    return this.categoriesRepository.create({name, description});
   }
 }

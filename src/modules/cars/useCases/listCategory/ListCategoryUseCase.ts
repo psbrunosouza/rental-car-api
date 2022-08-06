@@ -1,8 +1,8 @@
 import {ICategoryDTO} from "../../dtos/ICategoryDTO";
-import {ICategoryRepository} from "../../repositories/ICategoryRepository";
+import {ICategoriesRepository} from "../../repositories/ICategoriesRepository";
 
 export class ListCategoryUseCase {
-  constructor(private categoryRepository: ICategoryRepository) {}
+  constructor(private categoryRepository: ICategoriesRepository) {}
 
   async execute(): Promise<ICategoryDTO[]> {
     return await this.categoryRepository.list();

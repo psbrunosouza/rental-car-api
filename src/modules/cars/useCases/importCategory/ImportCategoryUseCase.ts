@@ -1,11 +1,11 @@
-import {CategoryRepository} from "../../repositories/CategoryRepository";
+import {CategoriesRepository} from "../../repositories/CategoriesRepository";
 import {parse} from "csv-parse";
 import fs from "fs";
 import {ICategoryDTO} from "../../dtos/ICategoryDTO";
 
 export class ImportCategoryUseCase {
 
-  constructor(private categoryRepository: CategoryRepository) {
+  constructor(private categoryRepository: CategoriesRepository) {
   }
 
   private loadCategories(file: Express.Multer.File | undefined): Promise<ICategoryDTO[]> {

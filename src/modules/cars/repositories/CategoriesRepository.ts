@@ -1,9 +1,11 @@
 import {Category} from "../entities/Category";
 import {ICategoryDTO} from "../dtos/ICategoryDTO";
-import {ICategoryRepository} from "./ICategoryRepository";
+import {ICategoriesRepository} from "./ICategoriesRepository";
 import {getRepository, Repository} from "typeorm";
+import {injectable} from "tsyringe";
 
-export class CategoryRepository implements ICategoryRepository{
+@injectable()
+export class CategoriesRepository implements ICategoriesRepository{
 
   private repository: Repository<Category>
 
