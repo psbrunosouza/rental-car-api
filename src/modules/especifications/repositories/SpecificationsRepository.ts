@@ -1,6 +1,6 @@
 import {ISpecificationsRepository} from "./ISpecificationsRepository";
 import {ISpecificationDTO} from "../dtos/ISpecificationDTO";
-import {Specifications} from "../model/Specifications";
+import {Specifications} from "../entities/Specifications";
 
 export class SpecificationsRepository implements ISpecificationsRepository{
   private specifications: Specifications[];

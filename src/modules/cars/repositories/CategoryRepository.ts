@@ -1,45 +1,30 @@
-import {Category} from "../model/Category";
+import {Category} from "../entities/Category";
 import {ICategoryDTO} from "../dtos/ICategoryDTO";
 import {ICategoryRepository} from "./ICategoryRepository";
-
-
+import {getRepository, Repository} from "typeorm";
 
 export class CategoryRepository implements ICategoryRepository{
 
-  private static INSTANCE: CategoryRepository;
+  private repository: Repository<Category>
 
-  private categories: Category[];
-
-  private constructor() {
-    this.categories = [];
+  constructor() {
+    this.repository = getRepository(Category);
   }
 
-  public static getInstance(): CategoryRepository {
-    if(!CategoryRepository.INSTANCE) {
-      CategoryRepository.INSTANCE = new CategoryRepository();
-    }
-    return CategoryRepository.INSTANCE;
+  async create({name, description}: ICategoryDTO): Promise<ICategoryDTO> {
+
+    const createCategory = this.repository.create({
+      name, description
+    })
+
+    return await this.repository.save(createCategory)
   }
 
-  create({name, description, created_at}: ICategoryDTO): ICategoryDTO {
-    const category = new Category();
-
-    Object.assign(category, {
-      name,
-      description,
-      created_at
-    });
-
-    this.categories.push(category);
-
-    return category;
+  async list(): Promise<ICategoryDTO[]> {
+    return await this.repository.find();
   }
 
-  list(): Category[] {
-    return this.categories;
-  }
-
-  findByName(name: string): Category | undefined {
-    return this.categories.find(category => category.name === name);
+  async findByName(name: string): Promise<ICategoryDTO | undefined> {
+    return await this.repository.findOne({where: {name}});
   }
 }
