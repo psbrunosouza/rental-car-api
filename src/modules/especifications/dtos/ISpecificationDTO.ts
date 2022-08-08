@@ -2,5 +2,7 @@ export interface ISpecificationDTO {
   id?: string;
   name: string,
   description: string,
-  created_at?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
+  deletedAt?: Date;
 }
