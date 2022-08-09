@@ -13,6 +13,8 @@ export class CreateSpecificationUseCase {
 
     const specificationArealdyExists = await this.specificationRepository.findByName(data.name);
 
+    console.log(specificationArealdyExists)
+
     if(specificationArealdyExists){
       throw new Error("Especification already exists");
     }

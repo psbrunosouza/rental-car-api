@@ -23,7 +23,7 @@ export class SpecificationsRepository implements ISpecificationsRepository{
 
   findByName(name: string): Promise<ISpecificationDTO | undefined> {
     return this.repository.findOne({
-      where: {name}
+      where: {name: name}
     });
   }
 }

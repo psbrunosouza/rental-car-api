@@ -2,14 +2,18 @@ import {CategoriesRepository} from "../../repositories/CategoriesRepository";
 import {parse} from "csv-parse";
 import fs from "fs";
 import {ICategoryDTO} from "../../dtos/ICategoryDTO";
+import {inject, injectable} from "tsyringe";
+import {ICategoriesRepository} from "../../repositories/ICategoriesRepository";
 
+@injectable()
 export class ImportCategoryUseCase {
 
-  constructor(private categoryRepository: CategoriesRepository) {
+  constructor(
+      @inject('CategoriesRepository')
+      private categoryRepository: ICategoriesRepository) {
   }
 
   private loadCategories(file: Express.Multer.File | undefined): Promise<ICategoryDTO[]> {
-
     return new Promise((resolve, reject) => {
       const categories: ICategoryDTO[] = [];
 
@@ -37,11 +41,11 @@ export class ImportCategoryUseCase {
   async execute(file: Express.Multer.File | undefined): Promise<void> {
     const categories = await this.loadCategories(file);
 
-    categories.map((category) => {
-      const categoryExists = this.categoryRepository.findByName(category.name);
+    categories.map(async (category) => {
+      const categoryExists = await this.categoryRepository.findByName(category.name);
 
         if(!categoryExists){
-          this.categoryRepository.create(category);
+          await this.categoryRepository.create(category);
         }
       }
     )
