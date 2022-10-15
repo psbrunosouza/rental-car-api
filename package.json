@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:server": "ts-node-dev src/shared/infra/http/server.ts --inspect --traspile-only --ignore-watch node_modules --respawn",
-    "typeorm": "npm run ts-node-dev ./node_modules/typeorm/cli.js"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
 
   "keywords": [],

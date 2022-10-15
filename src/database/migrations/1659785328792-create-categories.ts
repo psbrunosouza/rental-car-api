@@ -6,11 +6,7 @@ export class createCategories1659785328792 implements MigrationInterface {
         await queryRunner.createTable(new Table({
             name: "categories",
             columns: [
-                {
-                    name: "id",
-                    type: "uuid",
-                    isPrimary: true,
-                },
+
                 {
                     name: "name",
                     type: "varchar",
@@ -18,6 +14,11 @@ export class createCategories1659785328792 implements MigrationInterface {
                 {
                     name: "description",
                     type: "text",
+                },
+                {
+                    name: "id",
+                    type: "uuid",
+                    isPrimary: true,
                 },
                 {
                     name: "created_at",
