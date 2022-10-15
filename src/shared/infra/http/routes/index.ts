@@ -1,10 +1,12 @@
-import CategoriesRoutes from "./categories.routes";
-import SpecificationsRoutes from "./specificationsRoutes";
+import categoriesRoutes from "./categories.routes";
+import specificationsRoutes from "./specificationsRoutes";
 import {Router} from "express";
+import usersRoutes from "./users.routes";
 
 const routes = Router();
 
-routes.use("/categories", CategoriesRoutes);
-routes.use("/specifications", SpecificationsRoutes);
+routes.use("/categories", categoriesRoutes);
+routes.use("/specifications", specificationsRoutes);
+routes.use("/users", usersRoutes)
 
 export { routes }
