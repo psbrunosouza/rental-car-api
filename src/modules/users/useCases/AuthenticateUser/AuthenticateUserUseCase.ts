@@ -30,6 +30,9 @@ export class AuthenticateUserUseCase {
       expiresIn: "1d"
     });
 
+    // @ts-ignore
+    delete user.password;
+
     return {
       user,
       token
