@@ -27,4 +27,9 @@ export class UsersRepository implements IUsersRepository {
       },
     });
   }
+
+  async findById(id: string): Promise<IUserDTO | undefined> {
+    return await this.repository.findOne(id);
+  }
+
 }

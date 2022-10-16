@@ -1,6 +1,7 @@
 import {inject, injectable} from "tsyringe";
 import {ISpecificationDTO} from "../../dtos/ISpecificationDTO";
 import {ISpecificationsRepository} from "../../repositories/ISpecificationsRepository";
+import {AppError} from "../../../../shared/errors/AppError";
 
 @injectable()
 export class CreateSpecificationUseCase {
@@ -16,7 +17,7 @@ export class CreateSpecificationUseCase {
     console.log(specificationArealdyExists)
 
     if(specificationArealdyExists){
-      throw new Error("Especification already exists");
+      throw new AppError("Especification already exists", 400);
     }
 
     return this.specificationRepository.create(data)

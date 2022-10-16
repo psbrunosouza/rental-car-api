@@ -4,6 +4,7 @@ import fs from "fs";
 import {ICategoryDTO} from "../../dtos/ICategoryDTO";
 import {inject, injectable} from "tsyringe";
 import {ICategoriesRepository} from "../../repositories/ICategoriesRepository";
+import {AppError} from "../../../../shared/errors/AppError";
 
 @injectable()
 export class ImportCategoryUseCase {
@@ -18,7 +19,7 @@ export class ImportCategoryUseCase {
       const categories: ICategoryDTO[] = [];
 
       if (!file) {
-        throw new Error("File is undefined")
+        throw new AppError("File is undefined", 400)
       }
 
       const stream = fs.createReadStream(file.path);

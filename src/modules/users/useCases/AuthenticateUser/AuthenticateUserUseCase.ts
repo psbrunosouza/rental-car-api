@@ -4,6 +4,7 @@ import {sign} from "jsonwebtoken";
 import { UsersRepository } from "../../repositories/implementations/UsersRepository";
 import { IUserDTO } from "../../dtos/IUserDTO";
 import {IAuthDTO} from "../../dtos/IAuthDTO";
+import {AppError} from "../../../../shared/errors/AppError";
 
 @injectable()
 export class AuthenticateUserUseCase {
@@ -16,13 +17,13 @@ export class AuthenticateUserUseCase {
     const user = await this.userRepository.findByEmail(email);
 
     if (!user) {
-      throw new Error("Email or password incorrect");
+      throw new AppError("Email or password incorrect", 400);
     }
 
     const passwordMatch = await compare(password, user.password);
 
     if (!passwordMatch) {
-      throw new Error("Email or password incorrect");
+      throw new AppError("Email or password incorrect", 400);
     }
 
     const token = sign({}, "355a23b0542bb64cd36241241b838a22", {
