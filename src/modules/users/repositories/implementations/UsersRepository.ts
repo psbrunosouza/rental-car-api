@@ -12,7 +12,7 @@ export class UsersRepository implements IUsersRepository {
     this.repository = getRepository(User);
   }
 
-  async create(data: IUserDTO): Promise<void> {
+  async save(data: IUserDTO): Promise<void> {
     const user = this.repository.create({
       ...data,
     });

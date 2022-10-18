@@ -7,6 +7,7 @@ export class IUserDTO extends IDefaultDTO{
   password: string;
   isAdmin: boolean;
   driverLicense: string;
+  avatar: string;
   createdAt?: Date;
   updatedAt?: Date;
   deletedAt?: Date;
