@@ -22,7 +22,7 @@ export class CreateUserUseCase {
 
     const hashPassword = await hash(data.password, 8);
 
-    return this.usersRepository.create({...data, password: hashPassword});
+    return this.usersRepository.save({...data, password: hashPassword});
   }
 
 }
