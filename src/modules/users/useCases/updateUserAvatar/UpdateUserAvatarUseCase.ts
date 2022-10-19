@@ -1,7 +1,8 @@
-import {inject, injectable} from "tsyringe";
 import {UsersRepository} from "../../repositories/implementations/UsersRepository";
 import {IUsersRepository} from "../../repositories/IUsersRepository";
 import {AppError} from "../../../../shared/errors/AppError";
+import {inject, injectable} from "tsyringe";
+import {deleteFile} from "../../../../utils/file";
 
 interface IUserAvatar {
   userId: string;
@@ -22,6 +23,9 @@ export class UpdateUserAvatarUseCase {
       throw new AppError("User doesn't exists", 404);
     }
 
+    if(user.avatar){
+      await deleteFile(`./tmp/avatar/${user.avatar}`);
+    }
     user.avatar = avatar;
 
     return this.userRepository.save(user);
