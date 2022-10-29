@@ -1,4 +1,4 @@
-import {IDefaultDTO} from "../../../shared/dtos/IDefaultDTO";
+import {IDefaultDTO} from "@shared/dtos/IDefaultDTO";
 
 export class IUserDTO extends IDefaultDTO{
   name: string;

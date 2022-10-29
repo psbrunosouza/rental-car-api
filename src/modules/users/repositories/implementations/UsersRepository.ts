@@ -1,8 +1,8 @@
-import { IUsersRepository } from "../IUsersRepository";
-import { IUserDTO } from "../../dtos/IUserDTO";
 import { getRepository, Repository } from "typeorm";
-import { User } from "../../entities/User";
 import { injectable } from "tsyringe";
+import {User} from "@modules/users/entities/User";
+import {IUserDTO} from "@modules/users/dtos/IUserDTO";
+import {IUsersRepository} from "@modules/users/repositories/IUsersRepository";
 
 @injectable()
 export class UsersRepository implements IUsersRepository {

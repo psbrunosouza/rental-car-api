@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
-import {CreateCategoryUseCase} from "./CreateCategoryUseCase";
 import {container} from "tsyringe";
+import {CreateCategoryUseCase} from "@modules/cars/useCases/createCategory/CreateCategoryUseCase";
 
 export class CreateCategoryController {
   async handle(request: Request, response: Response): Promise<Response> {

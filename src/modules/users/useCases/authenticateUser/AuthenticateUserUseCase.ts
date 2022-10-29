@@ -4,7 +4,7 @@ import {sign} from "jsonwebtoken";
 import { UsersRepository } from "../../repositories/implementations/UsersRepository";
 import { IUserDTO } from "../../dtos/IUserDTO";
 import {IAuthDTO} from "../../dtos/IAuthDTO";
-import {AppError} from "../../../../shared/errors/AppError";
+import {AppError} from "@shared/errors/AppError";
 
 @injectable()
 export class AuthenticateUserUseCase {

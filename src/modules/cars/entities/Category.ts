@@ -7,7 +7,7 @@ import {
   PrimaryColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { ICategoryDTO } from "../dtos/ICategoryDTO";
+import {ICategoryDTO} from "@modules/cars/dtos/ICategoryDTO";
 
 @Entity("categories")
 export class Category implements ICategoryDTO {

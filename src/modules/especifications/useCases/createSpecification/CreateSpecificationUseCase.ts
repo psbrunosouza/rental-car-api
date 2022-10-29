@@ -1,7 +1,7 @@
 import {inject, injectable} from "tsyringe";
-import {ISpecificationDTO} from "../../dtos/ISpecificationDTO";
-import {ISpecificationsRepository} from "../../repositories/ISpecificationsRepository";
-import {AppError} from "../../../../shared/errors/AppError";
+import {AppError} from "@shared/errors/AppError";
+import {ISpecificationsRepository} from "@modules/especifications/repositories/ISpecificationsRepository";
+import {ISpecificationDTO} from "@modules/especifications/dtos/ISpecificationDTO";
 
 @injectable()
 export class CreateSpecificationUseCase {

@@ -1,6 +1,6 @@
 import {Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryColumn, UpdateDateColumn} from "typeorm";
-import {ISpecificationDTO} from "../dtos/ISpecificationDTO";
 import {v4 as uuidv4} from "uuid";
+import {ISpecificationDTO} from "@modules/especifications/dtos/ISpecificationDTO";
 
 @Entity('specifications')
 export class Specifications implements ISpecificationDTO {

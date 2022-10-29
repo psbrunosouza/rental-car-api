@@ -2,7 +2,7 @@ import {UsersRepository} from "../../repositories/implementations/UsersRepositor
 import {IUsersRepository} from "../../repositories/IUsersRepository";
 import {AppError} from "../../../../shared/errors/AppError";
 import {inject, injectable} from "tsyringe";
-import {deleteFile} from "../../../../utils/file";
+import {deleteFile} from "../../../../shared/utils/file";
 
 interface IUserAvatar {
   userId: string;

@@ -1,8 +1,8 @@
-import {ISpecificationsRepository} from "./ISpecificationsRepository";
-import {ISpecificationDTO} from "../dtos/ISpecificationDTO";
-import {Specifications} from "../entities/Specifications";
 import {getRepository, Repository} from "typeorm";
 import {injectable} from "tsyringe";
+import {ISpecificationsRepository} from "@modules/especifications/repositories/ISpecificationsRepository";
+import {Specifications} from "@modules/especifications/entities/Specifications";
+import {ISpecificationDTO} from "@modules/especifications/dtos/ISpecificationDTO";
 
 @injectable()
 export class SpecificationsRepository implements ISpecificationsRepository{

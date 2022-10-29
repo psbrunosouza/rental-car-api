@@ -1,8 +1,9 @@
 import {Router} from "express";
-import categoriesRoutes from "./categories.routes";
-import specificationsRoutes from "./specificationsRoutes";
-import usersRoutes from "./users.routes";
-import authenticateRoutes from "./authenticate.routes";
+import specificationsRoutes from "@shared/infra/http/routes/specificationsRoutes";
+import usersRoutes from "@shared/infra/http/routes/users.routes";
+import authenticateRoutes from "@shared/infra/http/routes/authenticate.routes";
+import categoriesRoutes from "@shared/infra/http/routes/categories.routes";
+
 
 const routes = Router();
 

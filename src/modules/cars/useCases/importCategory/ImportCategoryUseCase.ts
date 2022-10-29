@@ -1,10 +1,9 @@
-import {CategoriesRepository} from "../../repositories/CategoriesRepository";
 import {parse} from "csv-parse";
 import fs from "fs";
-import {ICategoryDTO} from "../../dtos/ICategoryDTO";
 import {inject, injectable} from "tsyringe";
-import {ICategoriesRepository} from "../../repositories/ICategoriesRepository";
-import {AppError} from "../../../../shared/errors/AppError";
+import {AppError} from "@shared/errors/AppError";
+import {ICategoryDTO} from "@modules/cars/dtos/ICategoryDTO";
+import {ICategoriesRepository} from "@modules/cars/repositories/ICategoriesRepository";
 
 @injectable()
 export class ImportCategoryUseCase {

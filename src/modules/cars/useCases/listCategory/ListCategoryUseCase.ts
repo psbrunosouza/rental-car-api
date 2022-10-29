@@ -1,6 +1,6 @@
-import {ICategoryDTO} from "../../dtos/ICategoryDTO";
-import {ICategoriesRepository} from "../../repositories/ICategoriesRepository";
 import {inject, injectable} from "tsyringe";
+import {ICategoryDTO} from "@modules/cars/dtos/ICategoryDTO";
+import {ICategoriesRepository} from "@modules/cars/repositories/ICategoriesRepository";
 
 @injectable()
 export class ListCategoryUseCase {

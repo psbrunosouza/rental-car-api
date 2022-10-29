@@ -1,4 +1,4 @@
-import {IUserDTO} from "../dtos/IUserDTO";
+import {IUserDTO} from "@modules/users/dtos/IUserDTO";
 
 export interface IUsersRepository {
   save(data: IUserDTO): Promise<void>;
