@@ -1,16 +1,16 @@
 import { inject, injectable } from "tsyringe";
 import { compare } from "bcrypt";
 import {sign} from "jsonwebtoken";
-import { UsersRepository } from "../../repositories/implementations/UsersRepository";
 import { IUserDTO } from "../../dtos/IUserDTO";
 import {IAuthDTO} from "../../dtos/IAuthDTO";
 import {AppError} from "@shared/errors/AppError";
+import {IUsersRepository} from "@modules/users/repositories/IUsersRepository";
 
 @injectable()
 export class AuthenticateUserUseCase {
   constructor(
-    @inject("UsersRepository")
-    private userRepository: UsersRepository
+    @inject("UserRepository")
+    private userRepository: IUsersRepository
   ) {}
 
   async execute({ email, password }: IUserDTO): Promise<IAuthDTO> {

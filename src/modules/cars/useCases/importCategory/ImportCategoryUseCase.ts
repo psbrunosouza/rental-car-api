@@ -9,7 +9,7 @@ import {ICategoriesRepository} from "@modules/cars/repositories/ICategoriesRepos
 export class ImportCategoryUseCase {
 
   constructor(
-      @inject('CategoriesRepository')
+      @inject('CategoryRepository')
       private categoryRepository: ICategoriesRepository) {
   }
 

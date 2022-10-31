@@ -5,7 +5,7 @@ import {ICategoriesRepository} from "@modules/cars/repositories/ICategoriesRepos
 @injectable()
 export class ListCategoryUseCase {
   constructor(
-      @inject('CategoriesRepository')
+      @inject('CategoryRepository')
       private categoryRepository: ICategoriesRepository) {}
 
   async execute(): Promise<ICategoryDTO[]> {

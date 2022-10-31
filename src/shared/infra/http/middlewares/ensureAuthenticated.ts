@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
-import { UsersRepository } from "@modules/users/repositories/implementations/UsersRepository";
+import { TypeormUserRepository } from "@modules/users/infra/typeorm/repositories/TypeormUserRepository";
 import {AppError} from "@shared/errors/AppError";
 
 interface IPayload {
@@ -12,7 +12,7 @@ export async function ensureAuthenticated(
   response: Response,
   next: NextFunction
 ) {
-  const usersRepository = new UsersRepository();
+  const usersRepository = new TypeormUserRepository();
 
   const authHeader = request.headers.authorization;
 

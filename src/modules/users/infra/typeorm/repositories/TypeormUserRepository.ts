@@ -1,11 +1,11 @@
 import { getRepository, Repository } from "typeorm";
 import { injectable } from "tsyringe";
-import {User} from "@modules/users/entities/User";
+import {User} from "@modules/users/infra/typeorm/entities/User";
 import {IUserDTO} from "@modules/users/dtos/IUserDTO";
 import {IUsersRepository} from "@modules/users/repositories/IUsersRepository";
 
 @injectable()
-export class UsersRepository implements IUsersRepository {
+export class TypeormUserRepository implements IUsersRepository {
   private repository: Repository<User>;
 
   constructor() {

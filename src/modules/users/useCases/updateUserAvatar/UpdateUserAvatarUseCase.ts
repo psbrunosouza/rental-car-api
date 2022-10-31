@@ -1,4 +1,4 @@
-import {UsersRepository} from "../../repositories/implementations/UsersRepository";
+import {TypeormUserRepository} from "../../infra/typeorm/repositories/TypeormUserRepository";
 import {IUsersRepository} from "../../repositories/IUsersRepository";
 import {AppError} from "../../../../shared/errors/AppError";
 import {inject, injectable} from "tsyringe";
@@ -12,7 +12,7 @@ interface IUserAvatar {
 @injectable()
 export class UpdateUserAvatarUseCase {
   constructor(
-    @inject('UsersRepository')
+    @inject('UserRepository')
     private userRepository: IUsersRepository
   ) {}
 

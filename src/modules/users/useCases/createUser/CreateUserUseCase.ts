@@ -7,7 +7,7 @@ import {AppError} from "../../../../shared/errors/AppError";
 @injectable()
 export class CreateUserUseCase {
   constructor(
-    @inject('UsersRepository')
+    @inject('UserRepository')
     private usersRepository: IUsersRepository
   ) {
   }
